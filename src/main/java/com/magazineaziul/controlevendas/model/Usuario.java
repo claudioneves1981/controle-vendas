@@ -2,14 +2,13 @@ package com.magazineaziul.controlevendas.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Builder(toBuilder = true)
@@ -22,15 +21,22 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_USUARIO")
     private Long id;
 
+    @Column(name = "NOME")
     private String nome;
 
+    @Column(name = "LOGIN")
     private String login;
 
+    @Column(name = "SENHA")
     private String senha;
 
+    @Column(name = "EMAIL")
     private String email;
 
-    private Grupo grupo;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "ID_CARGO")
+    private Cargo cargo;
 }
