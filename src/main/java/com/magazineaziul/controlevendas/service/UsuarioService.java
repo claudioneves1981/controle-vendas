@@ -22,4 +22,5 @@ import java.util.List;
             return usuarioRepository.findByCargo(cargo);
         }
 
+
 }

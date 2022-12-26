@@ -3,10 +3,12 @@ package com.magazineaziul.controlevendas.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,12 +30,6 @@ public enum Cargo implements Serializable {
 
     @Column(name = "DESCRICAO")
     private String descricao;
-
-    Cargo(Long id, String cargo, String descricao) {
-        this.id = id;
-        this.cargo = cargo;
-        this.descricao = descricao;
-    }
 
     public Long getId() {
         return id;

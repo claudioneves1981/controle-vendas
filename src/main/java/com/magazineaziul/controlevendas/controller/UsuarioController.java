@@ -28,4 +28,6 @@ public class UsuarioController {
     public List<Usuario> findByLogin(@PathVariable Cargo cargo) throws Exception {
         return usuarioService.findByUsuario(cargo);
     }
+
+
 }

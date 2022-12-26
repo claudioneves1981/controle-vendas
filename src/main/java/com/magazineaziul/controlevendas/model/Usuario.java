@@ -39,4 +39,8 @@ public class Usuario implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "ID_CARGO")
     private Cargo cargo;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "ID_UNIDADE")
+    private Unidade unidade;
 }
