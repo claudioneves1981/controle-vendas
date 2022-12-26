@@ -22,5 +22,9 @@ import java.util.List;
             return usuarioRepository.findByCargo(cargo);
         }
 
+        public Usuario findByLogin(String login){
+            return usuarioRepository.findByLogin(login);
+        }
+
 
 }

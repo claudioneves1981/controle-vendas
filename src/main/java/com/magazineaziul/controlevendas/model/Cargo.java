@@ -21,6 +21,7 @@ public enum Cargo implements Serializable {
     GERENTE(3L,"GERENTE","ROLE_ADMIN ROLE_DIRETOR ROLE_GERENTE"),
     VENDEDOR(4L, "VENDEDOR","ROLE_ADMIN ROLE_DIRETOR ROLE_GERENTE ROLE_VENDEDOR");
 
+
     @Id
     @Column(name = "ID_CARGO")
     private Long id;
@@ -54,4 +55,5 @@ public enum Cargo implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
 }
