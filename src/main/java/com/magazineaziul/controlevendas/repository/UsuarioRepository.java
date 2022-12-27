@@ -15,4 +15,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	List<Usuario> findByCargo(Cargo cargo);
 
 	Usuario findByLogin(String login);
+
+
 }
