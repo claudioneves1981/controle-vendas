@@ -23,7 +23,7 @@ public class SecurityConfig {
    @Autowired
    private UserDetailsService userDetailsService;
 
-   // @Bean
+    //@Bean
     public AuthenticationManager authenticationManager(HttpSecurity http, UserDetailsService userDetailsService)
             throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
@@ -33,9 +33,9 @@ public class SecurityConfig {
                 .build();
     }
 
-    //@Bean
+   // @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf()
+        return http.csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.DELETE)
@@ -51,13 +51,12 @@ public class SecurityConfig {
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
-
-        return http.build();
+                .and().build();
+                //.and()
+                //.logout()
+                //.logoutUrl("/logout/**")
+                //.invalidateHttpSession(true)
+                //.deleteCookies("JSESSIONID")
     }
 
     @Bean
