@@ -2,17 +2,20 @@ package com.magazineaziul.controlevendas.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-public enum Unidade {
+public enum Unidade implements Serializable {
 
     TESTE(0L, "-30.048750057541955, -51.228587422990806"),
     SEDE(1L, "-30.048750057541955, -51.228587422990806"),
@@ -34,21 +37,5 @@ public enum Unidade {
 
     @Column(name = "LATLON")
     private String latlon;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLatlon() {
-        return latlon;
-    }
-
-    public void setLatlon(String latlon) {
-        this.latlon = latlon;
-    }
 
 }

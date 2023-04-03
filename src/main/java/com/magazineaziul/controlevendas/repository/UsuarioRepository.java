@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
+	List<Usuario> findByCargo(Enum<Cargo> cargo);
 
-	List<Usuario> findByCargo(Cargo cargo);
-
+	@Query("SELECT e FROM Usuario e JOIN FETCH e.roles WHERE e.login = (:login)")
 	Usuario findByLogin(String login);
 
 

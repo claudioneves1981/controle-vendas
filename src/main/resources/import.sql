@@ -1,7 +1,7 @@
-insert into cargo (id_cargo, cargo, descricao) values (1,'DIRETORGERAL','ROLE_ADMIN');
-insert into cargo (id_cargo, cargo, descricao) values (2,'DIRETOR','ROLE_GERENTES ROLE_ADMIN');
-insert into cargo (id_cargo, cargo, descricao) values (3,'GERENTE','ROLE_DIRETORES ROLE_GERENTES ROLE_ADMIN');
-insert into cargo (id_cargo, cargo, descricao) values (4,'VENDEDOR','ROLE_ADMIN ROLE_DIRETORES ROLE_GERENTES ROLE_VENDEDORES');
+insert into cargo (id_cargo, cargo) values (1,'DIRETORGERAL');
+insert into cargo (id_cargo, cargo) values (2,'DIRETOR');
+insert into cargo (id_cargo, cargo) values (3,'GERENTE');
+insert into cargo (id_cargo, cargo) values (4,'VENDEDOR');
 
 insert into usuario (id_usuario, nome, login, senha, email, id_cargo,  id_unidade, id_diretoria)values (1,'Edson A. do Nascimento','pele','$2y$10$K5ueK8ItEI1MsRZGIzO9AOy1iJmLPPXH6mvOBYc997iPkkEihYNHa','pele@magazineaziul.com.br',1 ,1, 1);
 insert into usuario (id_usuario, nome, login, senha, email, id_cargo,  id_unidade, id_diretoria)values (2,'Vagner Mancini','vagner.mancini','$2y$10$K5ueK8ItEI1MsRZGIzO9AOy1iJmLPPXH6mvOBYc997iPkkEihYNHa','vagner.mancini@magazineaziul.com.br',2,1,2);
