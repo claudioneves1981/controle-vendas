@@ -1,6 +1,9 @@
 package com.magazineaziul.controlevendas.config;
 
+import com.magazineaziul.controlevendas.model.Cargo;
+import com.magazineaziul.controlevendas.repository.UsuarioRepository;
 import com.magazineaziul.controlevendas.service.SecurityDatabaseService;
+import com.magazineaziul.controlevendas.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,6 +22,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityDatabaseService securityService;
+
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(securityService).passwordEncoder(new BCryptPasswordEncoder());
@@ -29,11 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST,"/login").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN","USERS")
-                .antMatchers("/directories/**").hasAnyRole("DIRECTORS","USERS")
-                .antMatchers("/managers/**").hasAnyRole("MANAGERS","USERS")
-                .antMatchers("/users").hasAnyRole("USERS")
+                .antMatchers("/login").permitAll()
+                .antMatchers("/admin/\\w+").hasAnyRole("ROLE_ADMIN","ROLE_DIRECTORS","ROLE_MANAGERS","ROLE_USERS")
+                .antMatchers("/directories/\\w+").hasAnyRole("ROLE_DIRECTORS","ROLE_MANAGERS","ROLE_USERS")
+                .antMatchers("/managers/\\w+").hasAnyRole("ROLE_MANAGERS","ROLE_USERS")
+                .antMatchers("/users").hasAnyRole("ROLE_USERS")
                 .anyRequest().authenticated().and().formLogin();
     }
 }

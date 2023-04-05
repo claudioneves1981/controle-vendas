@@ -21,8 +21,6 @@ public class StartApplication  implements CommandLineRunner {
         List<Usuario> user = repository.findByCargo(Cargo.DIRETORGERAL);
         for (Usuario usuario : user) {
             if (usuario != null) {
-                assert false;
-                usuario.getRoles().add("USERS");
                 usuario.getRoles().add("ADMIN");
                 repository.save(usuario);
             }
@@ -30,8 +28,6 @@ public class StartApplication  implements CommandLineRunner {
         user = repository.findByCargo(Cargo.DIRETOR);
         for (Usuario usuario : user) {
             if (usuario != null) {
-                assert false;
-                usuario.getRoles().add("USERS");
                 usuario.getRoles().add("DIRECTORS");
                 repository.save(usuario);
             }
@@ -39,8 +35,6 @@ public class StartApplication  implements CommandLineRunner {
         user = repository.findByCargo(Cargo.GERENTE);
         for (Usuario usuario : user) {
             if (usuario != null) {
-                assert false;
-                usuario.getRoles().add("USERS");
                 usuario.getRoles().add("MANAGERS");
                 repository.save(usuario);
             }
@@ -48,7 +42,6 @@ public class StartApplication  implements CommandLineRunner {
         user = repository.findByCargo(Cargo.VENDEDOR);
         for (Usuario usuario : user) {
             if (usuario != null) {
-                assert false;
                 usuario.getRoles().add("USERS");
                 repository.save(usuario);
             }
