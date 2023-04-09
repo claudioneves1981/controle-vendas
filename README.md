@@ -45,7 +45,7 @@ se caso não seja autorizado aparecera conforme abaixo. Forbidden
 
 para cadastrar um novo usuario basta seguir como abaixo.
 
-![image](https://user-images.githubusercontent.com/59265698/230787125-bb537c7a-4bc6-45d2-a097-4cf02b146c24.png)
+![image](https://user-images.githubusercontent.com/59265698/230790118-e0cd13c3-6fc1-4781-b158-c3de024f26c8.png)
 
 ENDPOINTS
 
