@@ -23,13 +23,13 @@ import java.util.List;
         }
 
         public void createUser(Usuario user){
-        String pass = user.getSenha();
-        user.setSenha(encoder.encode(pass));
+        String pass = user.getPassword();
+        user.setPassword(encoder.encode(pass));
         usuarioRepository.save(user);
     }
 
-        public Usuario findByLogin(String login){
-            return usuarioRepository.findByLogin(login);
+        public Usuario findByUsername(String username){
+            return usuarioRepository.findByUsername(username);
         }
 
         public List<Usuario> findAll(){

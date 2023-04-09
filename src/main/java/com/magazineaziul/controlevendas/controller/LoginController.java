@@ -27,14 +27,14 @@ public class LoginController {
 
     @PostMapping("/login")
     public Sessao logar(@RequestBody Login login) {
-        Usuario user = repository.findByLogin(login.getUsername());
+        Usuario user = repository.findByUsername(login.getUsername());
         if (user != null) {
-            boolean passwordOk = encoder.matches(login.getPassword(), user.getSenha());
+            boolean passwordOk = encoder.matches(login.getPassword(), user.getPassword());
             if (!passwordOk) {
                 throw new RuntimeException("Senha invalida para o login:" + login.getUsername());
             }
             Sessao sessao = new Sessao();
-            sessao.setLogin(user.getLogin());
+            sessao.setLogin(user.getUsername());
 
             JWTObject jwtObject = new JWTObject();
             jwtObject.setIssuedAt(new Date(System.currentTimeMillis()));

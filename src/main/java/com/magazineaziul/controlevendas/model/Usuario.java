@@ -21,11 +21,11 @@ public class Usuario implements Serializable {
     @Column(name = "NOME")
     private String nome;
 
-    @Column(name = "LOGIN")
-    private String login;
+    @Column(name = "USERNAME")
+    private String username;
 
-    @Column(name = "SENHA")
-    private String senha;
+    @Column(name = "PASSWORD")
+    private String password;
 
     @Column(name = "EMAIL")
     private String email;
@@ -47,8 +47,8 @@ public class Usuario implements Serializable {
     @Column(name = "role_id")
     private List<String> roles = new ArrayList<>();
 
-    public Usuario(String login) {
-        this.login = login;
+    public Usuario(String username) {
+        this.username = username;
     }
 
     public Usuario() {
@@ -71,20 +71,20 @@ public class Usuario implements Serializable {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
